@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+	<primitive>true</primitive>
+	<annotatorImplementationName>uk.ac.nactem.uima.UncertaintyOnPathwayStudio
+	</annotatorImplementationName>
+	<analysisEngineMetaData>
+		<name>Uncertainty On Pathway Models (PS version)</name>
+		<description>Identifies uncertainty on Pathway Studio models (tsv/csv) for the provided evidence/related sentences
+		</description>
+		<version>1.0</version>
+		<vendor>National Centre for Text Mining (NaCTeM)</vendor>
+		<configurationParameters>
+		<configurationParameter>
+				<name>InputFile</name>
+				<description>The name of the model file to be used as input (tsv/csv).
+				</description>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+		<configurationParameter>
+				<name>OutputFile</name>
+				<description>The name of the model file after linking with TM results (tsv/csv).
+				</description>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>RelationMatch</name>
+				<description>Set to true for a strict matching of relation types
+				</description>
+				<type>Boolean</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>InteractionNameIdx</name>
+				<description>Index of the column with the interactions in the TSV file representing the pathway from Pathway Studio.
+				</description>
+				<type>Integer</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>InteractionTypeIdx</name>
+				<description>Index of the column with the interaction types in the TSV file representing the pathway from Pathway Studio.
+				</description>
+				<type>Integer</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>InteractionPolarityIdx</name>
+				<description>Index of the column with the interaction polarity value in the TSV file representing the pathway from Pathway Studio.
+				</description>
+				<type>Integer</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+			<configurationParameter>
+				<name>AliasesIdx</name>
+				<description>Index of the column with the entity aliases in the TSV file representing the pathway from Pathway Studio.
+				</description>
+				<type>Integer</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+		</configurationParameters>
+		<configurationParameterSettings />
+		<typeSystemDescription>
+			<imports>
+				<import name="org.u_compare.U_compareTypeSystem" />
+				<import name="jp.ac.u_tokyo.s.is.www_tsujii.TsujiiLabTypesV2TypeSystem" />
+				<import name="uk.ac.nactem.uima.BioNLPSTTypeSystem" />
+				<import name="uk.ac.nactem.uima.MachineLearningTypeSystem" />
+				<import name="uk.ac.nactem.bigm.CancerMechanisms" />
+			</imports>
+		</typeSystemDescription>
+		<typePriorities>
+			<priorityList>
+				<type>jp.ac.u_tokyo.s.is.www_tsujii.tools.enju.EnjuSentence</type>
+				<type>jp.ac.u_tokyo.s.is.www_tsujii.tools.enju.EnjuConstituent
+				</type>
+				<type>uk.ac.nactem.uima.cas.semantic.Event</type>
+				<type>uk.ac.nactem.uima.cas.bionlpst.Entity</type>
+				<type>jp.ac.u_tokyo.s.is.www_tsujii.tools.enju.EnjuToken</type>
+			</priorityList>
+		</typePriorities>
+		<fsIndexCollection />
+		<capabilities>
+			<capability>
+				<inputs>
+					<type allAnnotatorFeatures="true">uk.ac.nactem.uima.cas.bionlpst.Event
+					</type>
+				</inputs>
+				<outputs>
+					<type allAnnotatorFeatures="true">uk.ac.nactem.uima.cas.bionlpst.Event
+					</type>
+				</outputs>
+				<languagesSupported />
+			</capability>
+		</capabilities>
+		<operationalProperties>
+			<modifiesCas>false</modifiesCas>
+			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+			<outputsNewCASes>false</outputsNewCASes>
+		</operationalProperties>
+	</analysisEngineMetaData>
+	<externalResourceDependencies />
+
+	<resourceManagerConfiguration />
+
+</analysisEngineDescription>

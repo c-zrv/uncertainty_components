@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+	<primitive>true</primitive>
+	<annotatorImplementationName>uk.ac.nactem.uima.EventListing
+	</annotatorImplementationName>
+	<analysisEngineMetaData>
+		<name>Event Listing</name>
+		<description>Lists entity pairs derived from flattened events (tsv).
+		</description>
+		<version>1.0</version>
+		<vendor>National Centre for Text Mining (NaCTeM)</vendor>
+		<configurationParameters>
+			<configurationParameter>
+				<name>OutFile</name>
+				<description>OutputFile (tsv)
+				</description>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>true</mandatory>
+			</configurationParameter>
+		</configurationParameters>
+		<configurationParameterSettings />
+		<typeSystemDescription>
+			<imports>
+				<import name="org.u_compare.U_compareTypeSystem" />
+				<import name="jp.ac.u_tokyo.s.is.www_tsujii.TsujiiLabTypesV2TypeSystem" />
+				<import name="uk.ac.nactem.uima.BioNLPSTTypeSystem" />
+				<import name="uk.ac.nactem.uima.MachineLearningTypeSystem" />
+				<import name="uk.ac.nactem.bigm.CancerMechanisms" />
+			</imports>
+		</typeSystemDescription>
+		<typePriorities>
+			<priorityList>
+				<type>jp.ac.u_tokyo.s.is.www_tsujii.tools.enju.EnjuSentence</type>
+				<type>jp.ac.u_tokyo.s.is.www_tsujii.tools.enju.EnjuConstituent
+				</type>
+				<type>uk.ac.nactem.uima.cas.semantic.Event</type>
+				<type>uk.ac.nactem.uima.cas.bionlpst.Entity</type>
+				<type>jp.ac.u_tokyo.s.is.www_tsujii.tools.enju.EnjuToken</type>
+			</priorityList>
+		</typePriorities>
+		<fsIndexCollection />
+		<capabilities>
+			<capability>
+				<languagesSupported />
+			</capability>
+		</capabilities>
+		<operationalProperties>
+			<modifiesCas>false</modifiesCas>
+			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+			<outputsNewCASes>false</outputsNewCASes>
+		</operationalProperties>
+	</analysisEngineMetaData>
+	<externalResourceDependencies />
+
+	<resourceManagerConfiguration />
+
+</analysisEngineDescription>
